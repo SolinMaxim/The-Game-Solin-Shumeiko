@@ -32,8 +32,8 @@ public class Player : MonoBehaviour
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();
         input.Player.Turn.performed += context => Turn(context.ReadValue<float>());
         input.Player.Turn.canceled += context => Turn(0);
-        trailRenderer.startColor = Color.gray;
-        trailRenderer.endColor = Color.gray;
+        trailRenderer.startColor = Color.Lerp(Color.white, Color.gray, 0.2f);
+        trailRenderer.endColor = Color.Lerp(Color.white, Color.gray, 0.2f);
     }
 
     private void Update()

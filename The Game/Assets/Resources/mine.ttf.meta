@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c227a745fde5cf43b08addf5a3ac427
+guid: b3cd95b5248120749a44f71d97ff406d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixel Digivolve Cyrillic
+  - F77 Minecraft
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
