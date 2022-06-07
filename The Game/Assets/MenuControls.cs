@@ -8,7 +8,6 @@ using System.IO;
 
 public class MenuControls : MonoBehaviour
 {
-
     public void ExitPressed()
     {
         Application.Quit();
@@ -27,13 +26,16 @@ public class MenuControls : MonoBehaviour
     public void PlayFreeRide()
     {
         SceneManager.LoadScene("FreeRide");
-        Back();
     }
 
     public void PlaySlalom()
     {
         SceneManager.LoadScene("Slalom");
-        Back();
+    }
+
+    public void PlayTwoPlayers()
+    {
+        SceneManager.LoadScene("SlalomTwoPlayers");
     }
 
     public void ToMainMenu()
@@ -48,7 +50,6 @@ public class MenuControls : MonoBehaviour
 
     public void Restart()
     {
-        gameObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

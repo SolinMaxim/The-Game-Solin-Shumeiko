@@ -1,0 +1,67 @@
+{
+    "name": "SecondPlayer",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "be35962d-b3c0-4274-8763-b1319ee42118",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "7f11cc72-0e55-4b31-90d3-77df3a8b4552",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "66931b80-4b8f-4f66-822a-2515d963eca6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "488d1947-f030-4bb8-bf5e-054fff1e1851",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "16ab9e94-de43-4b51-8fe7-805908a49159",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "08d0d352-9d5f-4119-8e35-a8b837dd4558",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

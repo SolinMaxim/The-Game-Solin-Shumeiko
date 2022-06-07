@@ -14,6 +14,7 @@ public class Finish : MonoBehaviour
     public LayerMask layerFinish;
     public GameObject finishMenu;
     public Text finishText;
+    public Text finishTime;
     public StreamReader read;
     public StreamWriter write;
     public int place = 0;
@@ -24,10 +25,12 @@ public class Finish : MonoBehaviour
     public GameObject map;
     private List<Tuple<float, string>> sortedTopList;
     public string userName = "Player";
+    private SpriteRenderer spriteRenderer1;
 
     private void Start()
     {
         userName = PlayerPrefs.GetString("UserName");
+        spriteRenderer1 = finishMenu.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -40,7 +43,11 @@ public class Finish : MonoBehaviour
             var strFinishTime = timer.timeText.text;
             var floatFinishTime = timer.ToInt(strFinishTime);
             timer.gameObject.SetActive(false);
-            finishText.text = "ѕоздравл€ем, вы прошли трассу за " + strFinishTime;
+            finishMenu.SetActive(true);
+            spriteRenderer1.sprite = Resources.Load<Sprite>("Empty");
+            finishText.gameObject.SetActive(true);
+            finishTime.gameObject.SetActive(true);
+            finishTime.text = strFinishTime;
             if (SceneManager.GetActiveScene().name == "Slalom")
                 read = new StreamReader("TopListSlalom.txt");
             else
@@ -61,14 +68,13 @@ public class Finish : MonoBehaviour
                 write = new StreamWriter("TopListSlalom.txt");
             else
                 write = new StreamWriter("TopListFreeRide.txt");
-            for (var i = 0; i < sortedTopList.Count; i++)
+            for (var i = 0; i < Math.Min(sortedTopList.Count,14); i++)
             {
                 if (Math.Abs(sortedTopList[i].Item1 - floatFinishTime) < 1e-9 && sortedTopList[i].Item2 == userName)
                     place = i + 1;
                 write.WriteLine((i + 1) + " " + timer.ConvertTimeToString(sortedTopList[i].Item1) + " " + sortedTopList[i].Item2);
             }
             //finishText.text = "ѕоздравл€ем, вы прошли трассу за " + strFinishTime + " и зан€ли " + place + " место";
-            finishText.text = strFinishTime;
             write.Close();
         }
     }

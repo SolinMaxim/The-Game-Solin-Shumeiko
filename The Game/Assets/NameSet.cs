@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class NameSet : MonoBehaviour
 {
     public string userName;
-    public TMP_InputField inputName;
+    public InputField inputName;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class NameSet : MonoBehaviour
 
     void Update()
     {
-        if (inputName.text.Length < 10)
+        if (inputName.text.Length < 9)
         {
             userName = inputName.text;
         }

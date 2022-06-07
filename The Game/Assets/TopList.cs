@@ -7,20 +7,14 @@ using System.IO;
 public class TopList : MonoBehaviour
 {
     public GameObject panel;
-    public GameObject slalomTop;
-    public GameObject freeRideTop;
     public Text slalomText;
     public Text freeRideText;
     public StreamReader read;
-    private RectTransform slalomRectTransform;
-    private RectTransform freeRideRectTransform;
     private bool alreadyPrint;
 
     // Start is called before the first frame update
     void Start()
-    {
-        slalomRectTransform = slalomTop.GetComponent<RectTransform>();
-        freeRideRectTransform = freeRideTop.GetComponent<RectTransform>();
+    { 
     }
 
     // Update is called once per frame
@@ -31,13 +25,19 @@ public class TopList : MonoBehaviour
             read = new StreamReader("TopListSlalom.txt");
             while (!read.EndOfStream)
             {
-                slalomText.text += read.ReadLine() + "\r\n";
+                var str = read.ReadLine();
+                if (str.Split()[0].Length == 1)
+                    str = "0" + str;
+                slalomText.text += str + "\r\n";
             }
             read.Close();
             read = new StreamReader("TopListFreeRide.txt");
             while (!read.EndOfStream)
             {
-                freeRideText.text += read.ReadLine() + "\r\n";
+                var str = read.ReadLine();
+                if (str.Split()[0].Length == 1)
+                    str = "0" + str;
+                freeRideText.text += str + "\r\n";
             }
             read.Close();
             alreadyPrint = true;
@@ -46,7 +46,5 @@ public class TopList : MonoBehaviour
         {
             alreadyPrint = false;
         }
-        slalomRectTransform.sizeDelta = slalomText.rectTransform.sizeDelta; 
-        freeRideRectTransform.sizeDelta = freeRideText.rectTransform.sizeDelta;
     }
 }

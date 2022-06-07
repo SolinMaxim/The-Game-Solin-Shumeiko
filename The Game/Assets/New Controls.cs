@@ -18,9 +18,7 @@ using UnityEngine.InputSystem.Utilities;
 public partial class @NewControls : IInputActionCollection2, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @NewControls()
-    {
-        asset = InputActionAsset.FromJson(@"{
+    public InputActionAsset assetAD = InputActionAsset.FromJson(@"{
     ""name"": ""New Controls"",
     ""maps"": [
         {
@@ -96,11 +94,97 @@ public partial class @NewControls : IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
+    public InputActionAsset assetArrow = InputActionAsset.FromJson(@"{
+    ""name"": ""New Controls"",
+    ""maps"": [
+        {
+            ""name"": ""Player"",
+            ""id"": ""eb104d49-f86b-4cc9-b65e-fdc63827f72a"",
+            ""actions"": [
+                {
+                    ""name"": ""Turn"",
+                    ""type"": ""Value"",
+                    ""id"": ""8b0006b6-d10b-4f61-a473-3213b379a100"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Ride"",
+                    ""type"": ""Button"",
+                    ""id"": ""b521b395-ccd7-4de6-9c35-b0a2433ac6d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Horisontal"",
+                    ""id"": ""e80430c4-2076-46c0-ac9b-027b6c9fb013"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""33b35b5c-c874-4028-9bf8-9f796bc66212"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""d281aaf8-7084-4a31-9054-8484e24a00e4"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58999d44-7078-4889-aaba-0942ad73275a"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ride"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        }
+    ],
+    ""controlSchemes"": []
+}");
+    public @NewControls( string control)
+    {
+        if (control == "AD")
+            asset = assetAD;
+        else
+            asset = assetArrow;
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Turn = m_Player.FindAction("Turn", throwIfNotFound: true);
     }
 
+    private void Update()
+    {
+
+    }
     public void Dispose()
     {
         UnityEngine.Object.Destroy(asset);

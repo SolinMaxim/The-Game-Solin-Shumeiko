@@ -9,7 +9,6 @@ public class Pause : MonoBehaviour
     // Start is called before the first frame update
     private bool isOnPause = false;
     public GameObject pauseMenu;
-    public GameObject map;
     public Text StartText;
 
     public void Update()
@@ -33,14 +32,12 @@ public class Pause : MonoBehaviour
             Time.timeScale = 0f;
         else
             Time.timeScale = 1f;
-        map.SetActive(true);
         pauseMenu.SetActive(false);
         isOnPause = false;
     }
     void DoPause()
     {
         StartText.gameObject.SetActive(false);
-        map.SetActive(false);
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isOnPause = true;

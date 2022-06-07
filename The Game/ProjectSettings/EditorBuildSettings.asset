@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Slalom.unity
     guid: e24f9f596f79fba429f882be25e247d7
+  - enabled: 1
+    path: Assets/Scenes/SlalomTwoPlayers.unity
+    guid: e036f758f49ae7443ae68434bbcd5f6c
   m_configObjects: {}
